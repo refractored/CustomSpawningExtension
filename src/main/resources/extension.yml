@@ -1,0 +1,5 @@
+name: CustomSpawning
+main: net.refractored.hordes.CustomSpawningExtension
+version: 0.1
+author: refractored
+plugin: BloodmoonReloaded

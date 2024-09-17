@@ -1,0 +1,17 @@
+#
+# BloodmoonReloaded: Hordes
+# By: refractored
+#
+Presets:
+  DefaultPreset:
+    # Whether to strike lightning at the spawn location
+    StrikeLightning: false
+    # If true, the plugin will replace all mobs that spawned.
+    # If false, it will just replace hostile mobs.
+    ReplaceAllMobs: false
+    # Format for mobs: <weight>, <mob>
+    Mobs:
+      - 10, ZOMBIE
+    # Worlds to apply this preset to
+    Worlds:
+      - world
