@@ -2,6 +2,7 @@
 # BloodmoonReloaded: Hordes
 # By: refractored
 #
+# This extension replaces the vanilla mob spawning mechanics with ours ONLY during a bloodmoon.
 Presets:
   DefaultPreset:
     # Whether to strike lightning at the spawn location

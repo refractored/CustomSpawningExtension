@@ -9,23 +9,22 @@ object SpawnConfigRegistry {
 
     /**
      * Gets a preset from the loaded presets
-     * @param name The name of the preset
-     * @return The itemstack for the preset, or null if it does not exist
+     * @param world The world to get the preset for
+     * @return The SpawnConfig for the preset, or null if it does not exist
      */
     @JvmStatic
-    fun getHordeConfig(world: World): SpawnConfig? = registeredConfigs.find { it.worlds.contains(world) }
+    fun getSpawnConfig(world: World): SpawnConfig? = registeredConfigs.find { it.worlds.contains(world) }
 
     /**
      * Gets a read-only map of all the presets loaded.
      * @return The mutable preset list
      */
     @JvmStatic
-    fun getHordeConfigs() = registeredConfigs.toList()
+    fun getSpawnConfigs() = registeredConfigs.toList()
 
     /**
      * Create a new preset and adds it to the config & map
-     * @param name The name of the preset
-     * @param item The itemstack for the preset
+     * @param config The SpawnConfig to add
      */
     @JvmStatic
     fun createPreset(config: SpawnConfig) {
@@ -39,8 +38,7 @@ object SpawnConfigRegistry {
 
     /**
      * Removes a preset from the config & map
-     * @return The itemstack that was created
-     * @param name The name of the preset
+     * @param config The SpawnConfig to remove
      */
     @JvmStatic
     fun removePreset(config: SpawnConfig) {
@@ -51,7 +49,7 @@ object SpawnConfigRegistry {
      * Deletes all presets in the map and populates it with the presets in the config.
      */
     @JvmStatic
-    fun refreshHordeConfigs() {
+    fun refreshSpawnConfigs() {
         registeredConfigs.clear()
         val config = CustomSpawningExtension.instance.spawnConfigYml
         val section = config.getConfigurationSection("Presets")

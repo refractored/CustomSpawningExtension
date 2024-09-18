@@ -39,7 +39,7 @@ class CustomSpawningExtension(
 
         spawnConfigYml = YamlConfiguration.loadConfiguration(dataFolder.resolve("mobs.yml"))
 
-        SpawnConfigRegistry.refreshHordeConfigs()
+        SpawnConfigRegistry.refreshSpawnConfigs()
 
         BloodmoonPlugin.instance.eventManager.registerListener(OnEntitySpawn())
     }

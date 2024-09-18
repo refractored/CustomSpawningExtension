@@ -4,11 +4,12 @@ import net.refractored.bloodmoonreloaded.worlds.BloodmoonRegistry
 import net.refractored.customSpawning.config.SpawnConfigRegistry
 import org.bukkit.entity.Monster
 import org.bukkit.event.EventHandler
+import org.bukkit.event.EventPriority
 import org.bukkit.event.Listener
 import org.bukkit.event.entity.CreatureSpawnEvent
 
 class OnEntitySpawn : Listener {
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     fun onBloodmoonStart(event: CreatureSpawnEvent) {
         val bloodmoonWorld = BloodmoonRegistry.getWorld(event.location.world.name) ?: return
 
@@ -16,9 +17,9 @@ class OnEntitySpawn : Listener {
 
         if (event.spawnReason != CreatureSpawnEvent.SpawnReason.NATURAL) return
 
-        val spawnConfig = SpawnConfigRegistry.getHordeConfig(event.location.world) ?: return
+        val spawnConfig = SpawnConfigRegistry.getSpawnConfig(event.location.world) ?: return
 
-        if (event.entity !is Monster && spawnConfig.replaceAllMobs) return
+        if (event.entity !is Monster && !spawnConfig.replaceAllMobs) return
 
         event.isCancelled = true
 
